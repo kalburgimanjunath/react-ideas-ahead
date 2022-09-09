@@ -17,7 +17,7 @@ export default function App() {
     console.log(user.user);
     return (
       <div>
-        Hello {user.user.displayName}
+        <h1>Hello {user.user.displayName}</h1>
         <img src={user.user.photoURL} width={50} height={50} />
         <button onClick={() => logout({ returnTo: window.location.origin })}>
           Log out
