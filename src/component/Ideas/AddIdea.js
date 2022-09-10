@@ -5,7 +5,7 @@ import ListIdea from './ListIdea';
 import { Label, FormGroup, Input, Button } from 'reactstrap';
 
 // import { useAlert } from 'react-alert';
-export default function AddIdea() {
+export default function AddIdea({ user }) {
   // const alert = useAlert();
 
   const [ideas, setIdeas] = useState();
@@ -65,6 +65,7 @@ export default function AddIdea() {
             description: '',
             image: '',
             url: '',
+            author: user.user.email,
           }}
           validate={(values) => {
             const errors = {};
@@ -132,6 +133,7 @@ export default function AddIdea() {
                 />
                 <ErrorMessage name="url" component="div" />
               </FormGroup>
+              <Field type="hidden" name="author" value={user.user.email} />
               <Button type="submit" className="primary" disabled={isSubmitting}>
                 Add Idea
               </Button>

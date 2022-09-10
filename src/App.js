@@ -25,7 +25,7 @@ export default function App() {
           </button>
         </div>
         <div className="container-fluid body">
-          <AddIdea />
+          <AddIdea user={user} />
         </div>
       </div>
     );
