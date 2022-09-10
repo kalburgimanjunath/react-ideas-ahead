@@ -8,8 +8,8 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 import { EarthoOneProvider } from '@eartho/one-client-react';
 
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+// import AlertTemplate from 'react-alert-template-basic';
 
 const options = {
   timeout: 5000,
@@ -18,9 +18,9 @@ const options = {
 root.render(
   <StrictMode>
     <EarthoOneProvider clientId="TM0RDLKzk7fncWCdFnU1">
-      <Provider template={AlertTemplate} {...options}>
-        <App />
-      </Provider>
+      {/* <Provider template={AlertTemplate} {...options}> */}
+      <App />
+      {/* </Provider> */}
     </EarthoOneProvider>
   </StrictMode>
 );
