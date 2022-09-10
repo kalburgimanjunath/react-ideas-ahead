@@ -9,6 +9,7 @@ export default function ListIdea({ ideas }) {
   let count = 0;
   return (
     <div className="ideas-list">
+      <h1>Ideas in Total:{ideas && ideas.length ? ideas.length : null}</h1>
       <ListGroup>
         {ideas &&
           ideas.map((item) => {
