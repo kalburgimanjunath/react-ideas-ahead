@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import ListIdea from './ListIdea';
 import { Label, FormGroup, Input, Button } from 'reactstrap';
+
+import { useAlert } from 'react-alert';
 export default function AddIdea() {
+  const alert = useAlert();
+
   const [ideas, setIdeas] = useState();
   const [image_url, setUrl] = useState();
   useEffect(() => {
@@ -48,6 +52,8 @@ export default function AddIdea() {
     fetch(url, requestOptions)
       .then((response) => response.json())
       .then((data) => console.log(data));
+
+    alert.show('Oh look, an alert!');
   };
   return (
     <div className="container" style={{ padding: 20 }}>
