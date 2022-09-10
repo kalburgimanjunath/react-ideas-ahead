@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { useEarthoOne } from '@eartho/one-client-react';
-import AddIdea from './component/AddIdea';
+import AddIdea from './component/Ideas/AddIdea';
 export default function App() {
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =
     useEarthoOne();
