@@ -6,12 +6,12 @@ export default function App() {
   const { isLoading, isConnected, error, user, connectWithPopup, logout } =
     useEarthoOne();
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
+  // if (error) {
+  //   return <div>Oops... {error.message}</div>;
+  // }
 
   if (isConnected) {
     console.log(user.user);
