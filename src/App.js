@@ -17,23 +17,34 @@ export default function App() {
     console.log(user.user);
     return (
       <div>
-        <h1>Hello {user.user.displayName}</h1>
-        <img src={user.user.photoURL} width={50} height={50} />
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
-          Log out
-        </button>
-        <AddIdea />
+        <div className="header">
+          <div className="header-text">Hello, {user.user.displayName}</div>
+          <img src={user.user.photoURL} width={50} height={50} />
+          <button onClick={() => logout({ returnTo: window.location.origin })}>
+            Log out
+          </button>
+        </div>
+        <div className="container-fluid body">
+          <AddIdea />
+        </div>
       </div>
     );
   } else {
     return (
-      <button
-        className="btn btn-outline-success"
-        id="login"
-        onClick={() => connectWithPopup({ access_id: 'gHnGmdqszGAjvgW1GPmf' })}
-      >
-        Log in
-      </button>
+      <div className="login">
+        <h4>Please login to start adding your ideas</h4>
+        <div>
+          <button
+            className="btn btn-outline-success"
+            id="login"
+            onClick={() =>
+              connectWithPopup({ access_id: 'gHnGmdqszGAjvgW1GPmf' })
+            }
+          >
+            Log in
+          </button>
+        </div>
+      </div>
     );
   }
 }

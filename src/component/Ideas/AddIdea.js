@@ -56,79 +56,92 @@ export default function AddIdea() {
     // alert.show('Oh look, an alert!');
   };
   return (
-    <div className="container" style={{ padding: 20 }}>
-      <h1>Ideas List</h1>
-      <Formik
-        initialValues={{
-          title: '',
-          description: '',
-          image: '',
-          url: '',
-        }}
-        validate={(values) => {
-          const errors = {};
-          if (!values.title) {
-            errors.title = 'Required';
-          }
-          if (!values.description) {
-            errors.description = 'Required';
-          }
-          // if (!values.image) {
-          //   errors.image = 'Required';
-          // }
-          // if (!values.url) {
-          //   errors.url = 'Required';
-          // }
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            saveData({ fields: values });
-            setSubmitting(false);
-          }, 400);
-        }}
-      >
-        {({ isSubmitting, setFieldValue }) => (
-          <Form>
-            <FormGroup row>
-              <Label htmlFor="title">Title</Label>
-              <Field type="title" name="title" placeholder="Enter Idea Title" />
-              <ErrorMessage name="title" component="div" />
-            </FormGroup>
-            <FormGroup row>
-              <Label htmlFor="description">Description</Label>
-              <Field
-                type="text"
-                name="description"
-                placeholder="Enter description"
-              />
-              <ErrorMessage name="description" component="div" />
-            </FormGroup>
-            <FormGroup row>
-              <Label htmlFor="image">Image</Label>
-              <Field
-                type="file"
-                name="image"
-                placeholder="Enter Idea image"
-                onChange={(e) => {
-                  setUrl(e.target.files[0]);
-                }}
-              />
-              <ErrorMessage name="image" component="div" />
-            </FormGroup>
-            <FormGroup row>
-              <Label htmlFor="url">Demo url</Label>
-              <Field type="text" name="url" placeholder="Enter Idea demo url" />
-              <ErrorMessage name="url" component="div" />
-            </FormGroup>
-            <Button type="submit" className="primary" disabled={isSubmitting}>
-              Add Idea
-            </Button>
-          </Form>
-        )}
-      </Formik>
-      <ListIdea ideas={ideas} />
+    <div className="row" style={{ padding: 20 }} xs="2">
+      <div className="col-6" xs="2">
+        <h1>Ideas List</h1>
+        <Formik
+          initialValues={{
+            title: '',
+            description: '',
+            image: '',
+            url: '',
+          }}
+          validate={(values) => {
+            const errors = {};
+            if (!values.title) {
+              errors.title = 'Required';
+            }
+            if (!values.description) {
+              errors.description = 'Required';
+            }
+            // if (!values.image) {
+            //   errors.image = 'Required';
+            // }
+            // if (!values.url) {
+            //   errors.url = 'Required';
+            // }
+            return errors;
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              saveData({ fields: values });
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({ isSubmitting, setFieldValue }) => (
+            <Form>
+              <FormGroup row>
+                <Label htmlFor="title">Title</Label>
+                <Field
+                  type="title"
+                  name="title"
+                  placeholder="Enter Idea Title"
+                />
+                <ErrorMessage name="title" component="div" />
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="description">Description</Label>
+                <Field
+                  type="text"
+                  as="textarea"
+                  name="description"
+                  placeholder="Enter description"
+                />
+                <ErrorMessage name="description" component="div" />
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="image">Image</Label>
+                <Field
+                  type="file"
+                  name="image"
+                  placeholder="Enter Idea image"
+                  onChange={(e) => {
+                    setUrl(e.target.files[0]);
+                  }}
+                />
+                <ErrorMessage name="image" component="div" />
+              </FormGroup>
+              <FormGroup row>
+                <Label htmlFor="url">Demo url</Label>
+                <Field
+                  type="text"
+                  name="url"
+                  placeholder="Enter Idea demo url"
+                />
+                <ErrorMessage name="url" component="div" />
+              </FormGroup>
+              <Button type="submit" className="primary" disabled={isSubmitting}>
+                Add Idea
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+      <div className="col-6">
+        <ListIdea ideas={ideas} />
+      </div>
     </div>
   );
 }

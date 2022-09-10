@@ -8,7 +8,7 @@ import {
 export default function ListIdea({ ideas }) {
   let count = 0;
   return (
-    <>
+    <div className="ideas-list">
       <ListGroup>
         {ideas &&
           ideas.map((item) => {
@@ -31,6 +31,6 @@ export default function ListIdea({ ideas }) {
             );
           })}
       </ListGroup>
-    </>
+    </div>
   );
 }
